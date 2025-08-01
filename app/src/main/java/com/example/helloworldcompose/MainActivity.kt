@@ -69,6 +69,17 @@ fun MainContentScreen() {
         Button(onClick = { lblChangeColor = Color.Red }) {
             Text("Change Color")
         }
+        Spacer(modifier = Modifier.height(16.dp))
+        Button(onClick = {
+            lblChangeColor = when (lblChangeColor) {
+                Color.Black -> Color.Red
+                Color.Red -> Color.Blue
+                Color.Blue -> Color.Green
+                else -> Color.Black
+            }
+        }) {
+            Text("Change Random Color")
+        }
     }
 }
 
