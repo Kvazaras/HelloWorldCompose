@@ -48,6 +48,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MainContentScreen() {
     var lblChangeTextValue by remember { mutableStateOf("Hello world") }
+    var lblChangeColor by remember { mutableStateOf(Color.Black) }
 
     Column(
         modifier = Modifier
@@ -57,9 +58,16 @@ fun MainContentScreen() {
         verticalArrangement = Arrangement.Center
     ) {
         Text(text = lblChangeTextValue)
+        Spacer(modifier = Modifier.height(8.dp))
+        Text(text = "Hello color",
+             color = lblChangeColor)
         Spacer(modifier = Modifier.height(32.dp))
         Button(onClick = { lblChangeTextValue = "Text Changed. Yey!" }) {
             Text("Change Text")
+        }
+        Spacer(modifier = Modifier.height(8.dp))
+        Button(onClick = { lblChangeColor = Color.Red }) {
+            Text("Change Color")
         }
     }
 }
